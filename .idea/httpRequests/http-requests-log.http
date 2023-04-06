@@ -1,0 +1,288 @@
+GET http://localhost:8080/course/get-by-duration-between?fromDuration=1&toDuration=10
+
+<> 2023-04-06T174959.200.json
+
+###
+
+GET http://localhost:8080/course/get-by-price?fromDuration=1&toDuration=10
+
+<> 2023-04-06T174844.404.json
+
+###
+
+GET http://localhost:8080/course/get-by-name/Java
+
+<> 2023-04-06T174832.200.json
+
+###
+
+GET http://localhost:8080/get-by-name/Java
+
+<> 2023-04-06T174656.404.json
+
+###
+
+GET http://localhost:8080/get-by-name/Java
+
+<> 2023-04-06T174626.404.json
+
+###
+
+GET http://localhost:8080/course/list
+
+<> 2023-04-06T174620.200.json
+
+###
+
+GET http://localhost:8080/get-by-name/Java
+
+<> 2023-04-06T174545.404.json
+
+###
+
+GET http://localhost:8080/get-by-name/
+
+<> 2023-04-06T174535.404.json
+
+###
+
+GET http://localhost:8080/course/list
+
+<> 2023-04-06T174000.200.json
+
+###
+
+POST http://localhost:8080/course/create
+Content-Type: application/json
+
+{
+  "name": "uwgef",
+  "price": 15,
+  "duration": 10
+}
+
+<> 2023-04-06T173951.200.json
+
+###
+
+POST http://localhost:8080/course/create
+Content-Type: application/json
+
+{
+  "name": "css",
+  "price": 9,
+  "duration": 6
+}
+
+<> 2023-04-06T173921.200.json
+
+###
+
+POST http://localhost:8080/course/create
+Content-Type: application/json
+
+{
+  "name": "html",
+  "price": 1,
+  "duration": 3
+}
+
+<> 2023-04-06T173901.200.json
+
+###
+
+GET http://localhost:8080/course/list
+
+<> 2023-04-06T165019.200.json
+
+###
+
+GET http://localhost:8080/course/list
+
+<> 2023-04-06T164849.200.json
+
+###
+
+POST http://localhost:8080/course/create
+Content-Type: application/json
+
+{
+  "name": "Java",
+  "price": 12,
+  "duration": 5
+}
+
+<> 2023-04-06T164827.200.json
+
+###
+
+POST http://localhost:8080/course/create
+Content-Type: application/json
+
+{
+  "name": "Java",
+  "price": 12,
+  "duration": 5
+}
+
+<> 2023-04-06T164824.200.json
+
+###
+
+GET http://localhost:8080/course/list
+
+<> 2023-04-06T164814.200.json
+
+###
+
+GET http://localhost:8080/course/list
+
+<> 2023-04-06T164809.200.json
+
+###
+
+POST http://localhost:8080/course/create
+Content-Type: application/json
+
+{
+  "name": "Java",
+  "price": 12,
+  "duration": 5
+}
+
+<> 2023-04-06T164712.200.json
+
+###
+
+GET http://localhost:8080/course/get/1
+
+<> 2023-04-06T164446.200.json
+
+###
+
+GET http://localhost:8080/course/list
+
+<> 2023-04-06T164434.200.json
+
+###
+
+POST http://localhost:8080/course/create
+Content-Type: application/json
+
+{
+  "name": "Java",
+  "price": 12,
+  "duration": 5
+
+}
+
+<> 2023-04-06T164425.200.json
+
+###
+
+POST http://localhost:8080/course/create
+Content-Type: application/json
+
+{
+  "name": "Java",
+  "price": 12,
+  "duration": 5,
+
+}
+
+<> 2023-04-06T164209.400.json
+
+###
+
+POST http://localhost:8080/course/create
+Content-Type: application/json
+
+{
+  "name": "Java",
+  "price": 12,
+  "duration": 5,
+
+}
+
+<> 2023-04-06T164114.400.json
+
+###
+
+GET http://localhost:8080/student/get/1
+Content-Type: application/json
+
+{
+  "id": 1
+}
+
+<> 2023-04-06T151118.200.json
+
+###
+
+GET http://localhost:8080/student/test
+Content-Type: application/json
+
+{
+  "id": 1
+}
+
+<> 2023-04-06T151017.404.json
+
+###
+
+GET http://localhost:8080/student/test
+
+<> 2023-04-06T150927.404.json
+
+###
+
+POST http://localhost:8080/student/create/all
+Content-Type: application/json
+
+[
+  {
+    "name": "Name1",
+    "surname": "Toshmatov"
+  },
+  {
+    "name": "Name2",
+    "surname": "Toshmatov"
+  },
+  {
+    "name": "Name3",
+    "surname": "Toshmatov"
+  }
+]
+
+<> 2023-04-06T150910.404.json
+
+###
+
+GET http://localhost:8080/student/list
+
+<> 2023-04-06T150857.200.json
+
+###
+
+POST http://localhost:8080/student/create
+Content-Type: application/json
+
+{
+  "name": "Davron",
+  "surname": "Salimov",
+  "level": "2",
+  "gender":"MALE",
+  "age": 10
+
+}
+
+<> 2023-04-06T150846.200.json
+
+###
+
+GET http://localhost:8080/student/list
+
+<> 2023-04-06T150836.200.json
+
+###
+

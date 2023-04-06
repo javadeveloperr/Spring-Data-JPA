@@ -7,6 +7,7 @@ import com.example.repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -40,7 +41,6 @@ public class CourseService {
         if (dto.getName() == null || dto.getName().isBlank()) {
             throw new AppBadRequestException("course name qani?");
         }
-
         courseRepository.save(entity);
         dto.setId(entity.getId());
         return dto;
@@ -85,9 +85,84 @@ public class CourseService {
             CourseDTO dto = new CourseDTO();
             dto.setId(entity.getId());
             dto.setName(entity.getName());
-            dto.setDuration(dto.getDuration());
-            dto.setPrice(dto.getPrice());
-            dto.setCreatedDate(dto.getCreatedDate());
+            dto.setDuration(entity.getDuration());
+            dto.setPrice(entity.getPrice());
+            dto.setCreatedDate(entity.getCreatedDate());
+            //...
+            listByname.add(dto);
+        });
+        return listByname;
+    }
+    public List<CourseDTO> getByPrice(Double price) {
+        Iterable<CourseEntity> iterable = courseRepository.getByPrice(price);
+        List<CourseDTO> listByname = new LinkedList<>();
+        iterable.forEach(entity -> {
+            CourseDTO dto = new CourseDTO();
+            dto.setId(entity.getId());
+            dto.setName(entity.getName());
+            dto.setDuration(entity.getDuration());
+            dto.setPrice(entity.getPrice());
+            dto.setCreatedDate(entity.getCreatedDate());
+            //...
+            listByname.add(dto);
+        });
+        return listByname;
+    }
+    public List<CourseDTO> getByDuration(Integer duration) {
+        Iterable<CourseEntity> iterable = courseRepository.getByDuration(duration);
+        List<CourseDTO> listByname = new LinkedList<>();
+        iterable.forEach(entity -> {
+            CourseDTO dto = new CourseDTO();
+            dto.setId(entity.getId());
+            dto.setName(entity.getName());
+            dto.setDuration(entity.getDuration());
+            dto.setPrice(entity.getPrice());
+            dto.setCreatedDate(entity.getCreatedDate());
+            //...
+            listByname.add(dto);
+        });
+        return listByname;
+    }
+    public List<CourseDTO> getByPriceBetween(Double priceFrom, Double toPrice) {
+        Iterable<CourseEntity> iterable = courseRepository.getByPriceBetween(priceFrom,toPrice);
+        List<CourseDTO> listByname = new LinkedList<>();
+        iterable.forEach(entity -> {
+            CourseDTO dto = new CourseDTO();
+            dto.setId(entity.getId());
+            dto.setName(entity.getName());
+            dto.setDuration(entity.getDuration());
+            dto.setPrice(entity.getPrice());
+            dto.setCreatedDate(entity.getCreatedDate());
+            //...
+            listByname.add(dto);
+        });
+        return listByname;
+    }
+    public List<CourseDTO> getByDurationBetween(Integer fromDuration, Integer toDuration) {
+        Iterable<CourseEntity> iterable = courseRepository.getByDurationBetween(fromDuration,toDuration);
+        List<CourseDTO> listByname = new LinkedList<>();
+        iterable.forEach(entity -> {
+            CourseDTO dto = new CourseDTO();
+            dto.setId(entity.getId());
+            dto.setName(entity.getName());
+            dto.setDuration(entity.getDuration());
+            dto.setPrice(entity.getPrice());
+            dto.setCreatedDate(entity.getCreatedDate());
+            //...
+            listByname.add(dto);
+        });
+        return listByname;
+    }
+    public List<CourseDTO> getByCreatedDateBetween(LocalDateTime fromDate, LocalDateTime toDate) {
+        Iterable<CourseEntity> iterable = courseRepository.getByCreatedDateBetween(fromDate,toDate);
+        List<CourseDTO> listByname = new LinkedList<>();
+        iterable.forEach(entity -> {
+            CourseDTO dto = new CourseDTO();
+            dto.setId(entity.getId());
+            dto.setName(entity.getName());
+            dto.setDuration(entity.getDuration());
+            dto.setPrice(entity.getPrice());
+            dto.setCreatedDate(entity.getCreatedDate());
             //...
             listByname.add(dto);
         });

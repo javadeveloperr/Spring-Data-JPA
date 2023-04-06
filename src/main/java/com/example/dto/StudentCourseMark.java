@@ -11,5 +11,5 @@ public class StudentCourseMark {
     private Integer studentId;
     private Integer courseId;
     private Integer mark;
-    private LocalDateTime createdDate;
+    private LocalDateTime createdDate=LocalDateTime.now();
 }

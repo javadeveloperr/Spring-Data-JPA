@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 @RestController
 @RequestMapping(value = "/course")
@@ -44,8 +45,25 @@ public class CourseController {
     public ResponseEntity<?> getByName(@PathVariable("name") String name){
         return ResponseEntity.ok(courseService.getByName(name));
     }
-//    @GetMapping(value = "/get-by-surname/{surname}")
-//    public ResponseEntity<?> getBySurname(@PathVariable("surname") String surname){
-//        return ResponseEntity.ok(courseService.(surname));
-//    }
+    @GetMapping(value = "/get-by-price/{price}")
+    public ResponseEntity<?> getByPrice(@PathVariable("price") Double price){
+        return ResponseEntity.ok(courseService.getByPrice(price));
+    }
+    @GetMapping(value = "/get-by-duration/{duration}")
+    public ResponseEntity<?> getByDuration(@PathVariable("duration") Integer duration){
+        return ResponseEntity.ok(courseService.getByDuration(duration));
+    }
+    @GetMapping(value = "/get-by-price-between")
+    public ResponseEntity<?> getByPriceBetween(@RequestParam("fromPrice") Double fromPrice,@RequestParam("toPrice") Double toPrice){
+        return ResponseEntity.ok(courseService.getByPriceBetween(fromPrice, toPrice));
+    }
+    @GetMapping(value = "/get-by-duration-between")
+    // get-by-price?fromDuration=1&toDuration=10
+    public ResponseEntity<?> getByDurationBetween(@RequestParam("fromDuration")  Integer fromDuration,@RequestParam("toDuration") Integer toDuration){
+        return ResponseEntity.ok(courseService.getByDurationBetween(fromDuration,toDuration));
+    }
+    @GetMapping(value = "/get-by-date-between")
+    public ResponseEntity<?> getByCreatedDateBetween(@RequestParam("fromDate") LocalDateTime fromDate,@RequestParam("toDate") LocalDateTime toDate){
+        return ResponseEntity.ok(courseService.getByCreatedDateBetween(fromDate, toDate));
+    }
 }

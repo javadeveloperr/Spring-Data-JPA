@@ -10,9 +10,9 @@ POST localhost:8080/course/create
 Content-Type: application/json
 
 {
-  "name": "Java",
-  "price": 12,
-  "duration": 5
+  "name": "uwgef",
+  "price": 15,
+  "duration": 10
 }
 
 
@@ -29,3 +29,9 @@ Content-Type: application/json
 
 ### Course delete
 DELETE localhost:8080/course/delete/2
+
+###
+GET localhost:8080/course/get-by-duration-between?fromDuration=1&toDuration=10
+
+### Get by name
+GET localhost:8080/course/get-by-name/Java
