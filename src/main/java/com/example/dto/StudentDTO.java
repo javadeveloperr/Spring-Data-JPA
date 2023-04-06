@@ -7,8 +7,7 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 @Getter
 @Setter
-
-public class StudentDto {
+public class StudentDTO {
     private Integer id;
     private String name;
     private String surname;
@@ -16,4 +15,5 @@ public class StudentDto {
     private Integer age;
     private StudentGender gender;
     private LocalDateTime createdDate;
+
 }
