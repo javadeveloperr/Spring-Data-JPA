@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface CourseRepository extends CrudRepository<CourseEntity, Integer> {
     CourseEntity getById(Integer id);
-    List<CourseEntity> getAll();
+    List<CourseEntity> findAll();
     List<CourseEntity> getByName(String name);
     List<CourseEntity> getByPrice(Double price);
     List<CourseEntity> getByDuration(Integer duration);

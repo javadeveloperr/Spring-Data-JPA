@@ -6,10 +6,10 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 @Getter
 @Setter
-public class CourseDTO {
+public class StudentCourseMark {
     private Integer id;
-    private String name;
-    private Double price;
-    private Integer duration;
+    private Integer studentId;
+    private Integer courseId;
+    private Integer mark;
     private LocalDateTime createdDate;
 }

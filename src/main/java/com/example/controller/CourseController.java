@@ -1,9 +1,7 @@
 package com.example.controller;
 
 import com.example.dto.CourseDTO;
-import com.example.dto.StudentDTO;
 import com.example.service.CourseService;
-import com.example.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -8,15 +8,17 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-@Table(name = "course")
-public class CourseEntity {
+@Table(name = "student_course")
+public class StudentCourseMarkEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(nullable = false)
-    private String name;
-    @Column(nullable = false)
-    private Double price;
-    private Integer duration;
+    @ManyToOne
+    @JoinColumn(name = "student_id_id")
+    private StudentEntity studentId;
+    @ManyToOne
+    @JoinColumn(name = "course_id_id")
+    private CourseEntity courseId;
+    private Integer mark;
     private LocalDateTime createdDate=LocalDateTime.now();
 }

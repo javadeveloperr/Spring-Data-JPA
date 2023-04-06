@@ -38,11 +38,9 @@ public class CourseService {
         entity.setPrice(dto.getPrice());
         entity.setCreatedDate(dto.getCreatedDate());
         if (dto.getName() == null || dto.getName().isBlank()) {
-            throw new AppBadRequestException("Name qani?");
+            throw new AppBadRequestException("course name qani?");
         }
-        if (dto.getSurname() == null || dto.getSurname().isBlank()) {
-            throw new AppBadRequestException("Surname qani?");
-        }
+
         courseRepository.save(entity);
         dto.setId(entity.getId());
         return dto;
@@ -56,9 +54,9 @@ public class CourseService {
             CourseDTO dto = new CourseDTO();
             dto.setId(entity.getId());
             dto.setName(entity.getName());
-            dto.setDuration(dto.getDuration());
-            dto.setPrice(dto.getPrice());
-            dto.setCreatedDate(dto.getCreatedDate());
+            dto.setDuration(entity.getDuration());
+            dto.setPrice(entity.getPrice());
+            dto.setCreatedDate(entity.getCreatedDate());
             //...
             dtoList.add(dto);
         });
