@@ -42,4 +42,12 @@ public class StudentController {
     public ResponseEntity<?> delete(@PathVariable("id") Integer id) {
         return ResponseEntity.ok(studentService.delete(id));
     }
+    @GetMapping(value = "/get-by-name/{name}")
+    public ResponseEntity<?> getByName(@PathVariable("name") String name){
+        return ResponseEntity.ok(studentService.getByName(name));
+    }
+    @GetMapping(value = "/get-by-surname/{surname}")
+    public ResponseEntity<?> getBySurname(@PathVariable("surname") String surname){
+        return ResponseEntity.ok(studentService.getBySurname(surname));
+    }
 }

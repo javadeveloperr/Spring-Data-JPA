@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface StudentRepository extends CrudRepository<StudentEntity, Integer> {
 //    StudentEntity findByPhone(String phone);   // from StudentEntity where phone =:phone
 
-    Optional<StudentEntity> findByPhone(String phone); // from StudentEntity where phone =:phone
+//    Optional<StudentEntity> findByPhone(String phone); // from StudentEntity where phone =:phone
 
     ///StudentEntity findByName(String name); // from StudentEntity where name =:name
 
