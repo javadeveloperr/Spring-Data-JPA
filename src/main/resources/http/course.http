@@ -16,17 +16,6 @@ Content-Type: application/json
 }
 
 
-
-
-### Student update
-PUT localhost:8080/student/update/2
-Content-Type: application/json
-
-{
-  "name": "Qo'y",
-  "surname": "Qo'chqorov"
-}
-
 ### Course delete
 DELETE localhost:8080/course/delete/2
 

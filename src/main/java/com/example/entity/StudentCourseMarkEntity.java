@@ -13,10 +13,10 @@ public class StudentCourseMarkEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "student_id_id")
     private StudentEntity studentId;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "course_id_id")
     private CourseEntity courseId;
     private Integer mark;

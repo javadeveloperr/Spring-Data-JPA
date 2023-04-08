@@ -23,4 +23,13 @@ public class StudentEntity {
     private StudentGender gender;
     @Column(name = "created_date")
     private LocalDateTime createdDate=LocalDateTime.now();
+
+    public StudentEntity() {
+    }
+
+    public StudentEntity(Integer id, String name, String surname) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+    }
 }

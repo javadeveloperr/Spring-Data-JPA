@@ -1,7 +1,11 @@
 package com.example.repository;
 
 import com.example.entity.StudentEntity;
+import jakarta.transaction.Transactional;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -61,4 +65,20 @@ public interface StudentRepository extends CrudRepository<StudentEntity, Integer
     List<StudentEntity> findTop3ByNameOrderByAge(String name); // limit 3
 
     List<StudentEntity> findTop10ByNameOrderByAge(String name); // limit 10
+
+
+//    @Transactional
+//    @Modifying
+//    @Query("update StudentEntity set visible = :visible where id = :sId")
+//    Integer changeVisibility(@Param("sid") Integer sId, @Param("visible") Boolean v);
+//    @Query("FROM StudentEntity where name like ?1")
+//    List<StudentEntity> findByName2(String name);
+//    @Query("SELECT new StudentEntity (id, name, surname) from StudentEntity ")
+//    List<StudentEntity> findByName3();
+//    @Query("SELECT new com.example.mapper.StudentMapper(id,name, phone) FROM StudentEntity ")
+//    List<StudentMapper> findByName5();
+
+    // 123  124
+    // select * from student where phone in (......)
+    List<StudentEntity> findAllByPhoneIn(List<String> phoneList);
 }
