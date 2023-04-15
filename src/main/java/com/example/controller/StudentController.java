@@ -1,9 +1,10 @@
 package com.example.controller;
 
 import com.example.dto.StudentDTO;
+import com.example.dto.StudentFilterRequest;
 import com.example.service.StudentService;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,5 +50,43 @@ public class StudentController {
     @GetMapping(value = "/get-by-surname/{surname}")
     public ResponseEntity<?> getBySurname(@PathVariable("surname") String surname){
         return ResponseEntity.ok(studentService.getBySurname(surname));
+    }
+    @GetMapping(value = "/filter")
+    public ResponseEntity<?> filter(@RequestBody StudentFilterRequest studentFilterRequest){
+        return ResponseEntity.ok(studentService.filter(studentFilterRequest));
+    }
+    @PostMapping("/paging")
+    public ResponseEntity<?> paging(
+            @RequestParam(value = "page", defaultValue = "1") int page,
+            @RequestParam(value = "size", defaultValue = "30") int size,
+            @RequestBody StudentFilterRequest dto) {
+        return ResponseEntity.ok(studentService.paging(dto, page, size));
+
+    }
+
+    @PostMapping(value = "/paging-name")
+    public ResponseEntity<Page<StudentDTO>> pagingWithName(@RequestParam(value = "page", defaultValue = "1") int page,
+                                                           @RequestParam(value = "size", defaultValue = "30") int size,
+                                                           @RequestBody StudentFilterRequest filter) {
+        Page<StudentDTO> response = studentService.paginationWithName(filter.getName(), page, size);
+        return ResponseEntity.ok(response);
+    }
+
+    // Student Pagination by given Level. List should be sorted by id.
+    @GetMapping("/paging-Level")
+    public ResponseEntity<Page<StudentDTO>> pagingWithLevel(@RequestParam(value = "page", defaultValue = "1") int page,
+                                                            @RequestParam(value = "size", defaultValue = "30") int size,
+                                                            @RequestParam(value = "level") Integer level) {
+        Page<StudentDTO> response = studentService.pagingWithLevel(level, page, size);
+        return ResponseEntity.ok(response);
+    }
+
+    // Pagination by given gender.  List should be sorted by createdDate.
+    @PostMapping("/paging-gender")
+    public ResponseEntity<Page<StudentDTO>> pagingWithGender(@RequestParam(value = "page", defaultValue = "1") int page,
+                                                             @RequestParam(value = "size", defaultValue = "30") int size,
+                                                             @RequestBody StudentFilterRequest filter) {
+        Page<StudentDTO> response = studentService.pagingWithGender(filter.getGender().toString(), page, size);
+        return ResponseEntity.ok(response);
     }
 }

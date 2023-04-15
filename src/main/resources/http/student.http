@@ -53,3 +53,31 @@ DELETE localhost:8080/student/delete/2
 
 ### Student by id
 GET localhost:8080/student/get/1
+
+
+### Student pagination with name
+POST localhost:8081/student/paging-name
+Content-Type:  application/json
+
+{
+  "name": "x"
+}
+
+### Paging With Level
+GET localhost:8081/student/pagingWithLevel?level=1
+
+### Paging With Gender
+POST localhost:8081/student/paging-gender
+Content-Type: application/json
+
+{
+  "gender": "MALE"
+}
+
+### Student filter
+POST localhost:8081/student/paging
+Content-Type: application/json
+
+{
+  "surname": "b"
+}

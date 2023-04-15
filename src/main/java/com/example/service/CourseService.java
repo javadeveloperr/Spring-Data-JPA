@@ -69,6 +69,7 @@ public class CourseService {
         entity.setDuration(courseDTO.getDuration());
         entity.setPrice(courseDTO.getPrice());
         entity.setCreatedDate(courseDTO.getCreatedDate());
+        courseRepository.save(entity);
         return true;
     }
 

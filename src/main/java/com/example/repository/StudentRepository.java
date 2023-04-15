@@ -1,17 +1,16 @@
 package com.example.repository;
 
 import com.example.entity.StudentEntity;
-import jakarta.transaction.Transactional;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
-public interface StudentRepository extends CrudRepository<StudentEntity, Integer> {
+public interface StudentRepository extends CrudRepository<StudentEntity, Integer>,
+        PagingAndSortingRepository<StudentEntity, Integer> {
 //    StudentEntity findByPhone(String phone);   // from StudentEntity where phone =:phone
 
 //    Optional<StudentEntity> findByPhone(String phone); // from StudentEntity where phone =:phone
@@ -28,10 +27,16 @@ public interface StudentRepository extends CrudRepository<StudentEntity, Integer
 
     List<StudentEntity> findAllByAge(Integer age);
 
+    StudentEntity getById(Integer studentId);
     List<StudentEntity> findAllByGender(String gender);
 
     List<StudentEntity> findAllByCreatedDate(LocalDateTime time);//todo
     List<StudentEntity> findAllByCreatedDateBetween(LocalDateTime fromDate, LocalDateTime toDate);
+    Page<StudentEntity> findAllByName(String name, Pageable pageable);
+
+    Page<StudentEntity> findAllByLevel(Integer level, Pageable pageable);
+
+    Page<StudentEntity> findAllByGender(String gender, Pageable pageable);
 
     StudentEntity findByNameAndSurname(String name, String surname);
 
@@ -80,5 +85,6 @@ public interface StudentRepository extends CrudRepository<StudentEntity, Integer
 
     // 123  124
     // select * from student where phone in (......)
-    List<StudentEntity> findAllByPhoneIn(List<String> phoneList);
+//    List<StudentEntity> findAllByPhoneIn(List<String> phoneList);
+
 }
